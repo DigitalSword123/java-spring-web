@@ -6,9 +6,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
+//import javax.persistence.GeneratedValue;
 
 @Entity
 public class Todo {
+	
+	public Todo() {
+	}
 	
 	@Id
 	@GeneratedValue
