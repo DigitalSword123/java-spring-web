@@ -1,5 +1,6 @@
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <div class="container">
 	<h1>Your Todos</h1>
 	<h1>welcome ${name}</h1>
@@ -19,8 +20,8 @@
 				<tr>
 					<td>${todo.id}</td>
 					<td>${todo.description}</td>
-					<%--<td><fmt:formatDate pattern = "dd-MM-yyyy" value = "${todo.targetDate}" /></td>--%>
-					<td>${todo.targetDate}</td>
+					<td><tags:localDate date="${todo.targetDate}" pattern="dd-MM-yyyy"/></td>
+					<%--<td>${todo.targetDate}</td>--%>
 					<td>${todo.done}</td>
 					<td><a href="delete-todo?id=${todo.id}"
 						class="btn btn-warning">Delete</a></td>
