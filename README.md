@@ -19,3 +19,11 @@ Run "mvn clean" command
 warning
 Unable to open JDBC Connection for DDL execution
 unable to open mysql connection
+
+Maven 
+choose Run As-> Maven Build
+
+for building jar in  cmd run 
+mvn install
+
+mvn package
