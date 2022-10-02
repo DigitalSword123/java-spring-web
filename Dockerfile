@@ -4,7 +4,7 @@ FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 
 # copy the source
-COPY /target/*.jar  web-app.jar
+COPY /target/first-web-app-1-0.0.1-SNAPSHOT.jar  first-web-app-1-0.0.1-SNAPSHOT.jar.jar
 
 # update the timezone
 RUN apk update && apk upgrade && apk add --no-cache gcompact && \
@@ -19,4 +19,4 @@ ENV PATH="${PATH}:/usr/bin/java"
 ENV AWS_REGION=ap-south-1
 
 # Define the exec and param to be called
-ENTRYPOINT [ "java","-jar". "web-app.jar" ]
+ENTRYPOINT [ "java","-jar". "first-web-app-1-0.0.1-SNAPSHOT.jar" ]
