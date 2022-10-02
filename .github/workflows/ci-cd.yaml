@@ -73,7 +73,7 @@ jobs:
           name: variable_file_init
           path: build.env
 
-  npm-build-branch:
+  maven-build-branch:
     needs: init 
     runs-on: ubuntu-latest
     defaults:
@@ -83,7 +83,11 @@ jobs:
     if: github.ref != 'refs/heads/main'
     steps:
       - uses: actions/checkout@v3
-
+      - uses: actions/setup-java@v3
+          with:
+            distribution: 'temurin' # See 'Supported distributions' for available options
+            java-version: '18'
+            cache: maven
       - name: Download artifact variable_file_init from init stage
         uses: actions/download-artifact@v1
         with:
@@ -92,7 +96,7 @@ jobs:
       - name: Run npm-build-branch stage 
         working-directory: .
         run: |
-          bash ./github-actions-script/npm_build.sh
+          bash ./github-actions-script/mvn-build.sh
         env:
           VARIABLE_FILE: build.env
 
@@ -101,7 +105,7 @@ jobs:
         with:
           name: build_output_1
           path: |
-            dist-get-node-employee-data.zip
+            *.jar
             build.env 
 
 
