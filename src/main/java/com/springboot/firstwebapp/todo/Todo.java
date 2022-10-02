@@ -2,6 +2,8 @@ package com.springboot.firstwebapp.todo;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -25,7 +27,9 @@ public class Todo {
 	@Size(min=10, message="Enter atleast 10 characters")
 	private String Description;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate targetDate;
+	
 	private boolean done;
 	
 	public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {

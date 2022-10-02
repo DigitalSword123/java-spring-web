@@ -11,3 +11,11 @@ mysql database with spring
 
 https://github.com/in28minutes/spring-boot-master-class/tree/master/02.Spring-Boot-Web-Application-V2 
 scroll down for instructions
+
+
+to check pom.xml validity
+Run "mvn clean" command
+
+warning
+Unable to open JDBC Connection for DDL execution
+unable to open mysql connection

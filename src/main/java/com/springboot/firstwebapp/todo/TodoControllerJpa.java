@@ -1,6 +1,7 @@
 package com.springboot.firstwebapp.todo;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.security.core.Authentication;
@@ -40,7 +41,7 @@ public class TodoControllerJpa {
 	@RequestMapping(value="add-todo", method = RequestMethod.GET)
 	public String showNewTodoPage(ModelMap model) {
 		String username = getLoggedInUsername(model);
-		Todo todo = new Todo(0, username, "", LocalDate.now().plusYears(1), false);
+		Todo todo = new Todo(0, username, "", LocalDate.now(), false);
 		model.put("todo", todo);
 		return "todo";
 	}
@@ -51,6 +52,16 @@ public class TodoControllerJpa {
 		if(result.hasErrors()) {
 			return "todo";
 		}
+		
+//		LocalDate todoDate = todo.getTargetDate();
+//		System.out.println("old Date : "+todoDate);
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+//		  String text = todoDate.format(formatter);
+//		  LocalDate parsedDate = LocalDate.parse(text, formatter);
+//		 String datenew=parsedDate.format(formatter);
+//		 LocalDate datenew2 = LocalDate.parse(datenew, formatter);
+//	      System.out.println("new Date : "+datenew2);
+//		todo.setTargetDate(datenew2);
 		
 		String username = getLoggedInUsername(model);
 		todo.setUsername(username);

@@ -6,6 +6,7 @@
 	<table class="table">
 		<thead>
 			<tr>
+			    <th>ID</th>
 				<th>Description</th>
 				<th>Target Date</th>
 				<th>Is Done?</th>
@@ -18,6 +19,7 @@
 				<tr>
 					<td>${todo.id}</td>
 					<td>${todo.description}</td>
+					<%--<td><fmt:formatDate pattern = "dd-MM-yyyy" value = "${todo.targetDate}" /></td>--%>
 					<td>${todo.targetDate}</td>
 					<td>${todo.done}</td>
 					<td><a href="delete-todo?id=${todo.id}"
